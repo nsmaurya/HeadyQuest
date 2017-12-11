@@ -22,23 +22,21 @@ class MovieInteractor {
     var totalPages:UInt64?
     
     func getMovieViaSearch(query:String) {
-        if let tPage = totalPages, let curPage = currentPage, curPage < tPage { //tight coupling for api hit
-            apiManager.getDataFromMovieSearchAPI(query: query, page:currentPage
-                , onSuccess: { (dict) in
-                    print(dict)
-                    let json = JSON(dict)
-                    self.currentPage = json["page"].uInt64Value
-                    self.totalPages = json["total_pages"].uInt64Value
-                    let dataArray = json["results"].arrayObject
-                    if let movieList = Mapper<Movie>().mapArray(JSONObject: dataArray) {
-                        self.delegate?.didReceiveSearchedMovieData(movieList)
-                        return
-                    }
-                    self.delegate?.didFailToReceiveSearchedMovieData(errorState: .emptyState)
-                    
-            }) { errorState in
-                self.delegate?.didFailToReceiveSearchedMovieData(errorState: errorState)
-            }
+        apiManager.getDataFromMovieSearchAPI(query: query, page:currentPage
+            , onSuccess: { (dict) in
+                print(dict)
+                let json = JSON(dict)
+                self.currentPage = json["page"].uInt64Value
+                self.totalPages = json["total_pages"].uInt64Value
+                let dataArray = json["results"].arrayObject
+                if let movieList = Mapper<Movie>().mapArray(JSONObject: dataArray) {
+                    self.delegate?.didReceiveSearchedMovieData(movieList)
+                    return
+                }
+                self.delegate?.didFailToReceiveSearchedMovieData(errorState: .emptyState)
+                
+        }) { errorState in
+            self.delegate?.didFailToReceiveSearchedMovieData(errorState: errorState)
         }
     }
 }
