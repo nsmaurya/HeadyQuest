@@ -1,0 +1,6 @@
+framework module Pods_HeadyQuest {
+  umbrella header "Pods-HeadyQuest-umbrella.h"
+
+  export *
+  module * { export * }
+}

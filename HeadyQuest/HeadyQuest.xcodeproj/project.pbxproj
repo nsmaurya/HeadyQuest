@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94C1B89BECC2AED7D17E66DB /* Pods_HeadyQuest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F110B81483A10F6FF0133607 /* Pods_HeadyQuest.framework */; };
 		BA921BCC1FDE85D50093A325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA921BCB1FDE85D50093A325 /* AppDelegate.swift */; };
 		BA921BCE1FDE85D50093A325 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA921BCD1FDE85D50093A325 /* ViewController.swift */; };
 		BA921BD11FDE85D50093A325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA921BCF1FDE85D50093A325 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06462756ACE9940762D4F43C /* Pods-HeadyQuest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadyQuest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeadyQuest/Pods-HeadyQuest.debug.xcconfig"; sourceTree = "<group>"; };
+		159016AA7FE1EE02846F612B /* Pods-HeadyQuest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadyQuest.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeadyQuest/Pods-HeadyQuest.release.xcconfig"; sourceTree = "<group>"; };
 		BA921BC81FDE85D50093A325 /* HeadyQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadyQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA921BCB1FDE85D50093A325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA921BCD1FDE85D50093A325 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		BA921BD21FDE85D50093A325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA921BD51FDE85D50093A325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA921BD71FDE85D50093A325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F110B81483A10F6FF0133607 /* Pods_HeadyQuest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeadyQuest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94C1B89BECC2AED7D17E66DB /* Pods_HeadyQuest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B57065D307D6EB3C08D2FDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06462756ACE9940762D4F43C /* Pods-HeadyQuest.debug.xcconfig */,
+				159016AA7FE1EE02846F612B /* Pods-HeadyQuest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BA921BBF1FDE85D50093A325 = {
 			isa = PBXGroup;
 			children = (
 				BA921BCA1FDE85D50093A325 /* HeadyQuest */,
 				BA921BC91FDE85D50093A325 /* Products */,
+				1B57065D307D6EB3C08D2FDD /* Pods */,
+				DFA644C8216B32CB0460D019 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +112,14 @@
 			path = "Business Logic";
 			sourceTree = "<group>";
 		};
+		DFA644C8216B32CB0460D019 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F110B81483A10F6FF0133607 /* Pods_HeadyQuest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA921BDA1FDE85D50093A325 /* Build configuration list for PBXNativeTarget "HeadyQuest" */;
 			buildPhases = (
+				C597DBAD18DF2450AF583F15 /* [CP] Check Pods Manifest.lock */,
 				BA921BC41FDE85D50093A325 /* Sources */,
 				BA921BC51FDE85D50093A325 /* Frameworks */,
 				BA921BC61FDE85D50093A325 /* Resources */,
+				86A51DCD596285BC5BB88B04 /* [CP] Embed Pods Frameworks */,
+				BD79A336206B3A627BEDDE64 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,6 +189,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86A51DCD596285BC5BB88B04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HeadyQuest/Pods-HeadyQuest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeadyQuest/Pods-HeadyQuest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD79A336206B3A627BEDDE64 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeadyQuest/Pods-HeadyQuest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C597DBAD18DF2450AF583F15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HeadyQuest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA921BC41FDE85D50093A325 /* Sources */ = {
@@ -304,6 +391,7 @@
 		};
 		BA921BDB1FDE85D50093A325 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06462756ACE9940762D4F43C /* Pods-HeadyQuest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -319,6 +407,7 @@
 		};
 		BA921BDC1FDE85D50093A325 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 159016AA7FE1EE02846F612B /* Pods-HeadyQuest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
