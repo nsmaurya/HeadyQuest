@@ -9,17 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    lazy var movieInteractor = MovieInteractor()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        movieInteractor.delegate = self
+        movieInteractor.getMovieViaSearch(query: "A")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
+extension ViewController:MovieSearchProtocol {
+    func didReceiveSearchedMovieData(_ movies: [Movie]) {
+        
+    }
+    func didFailToReceiveSearchedMovieData(errorState: ErrorState) {
+        
+    }
+}
