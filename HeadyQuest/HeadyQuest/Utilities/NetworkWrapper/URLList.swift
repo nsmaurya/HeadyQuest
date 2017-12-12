@@ -10,4 +10,5 @@ import Foundation
 
 enum URLList:String {
     case MOVIE_SEARCH = "https://api.themoviedb.org/3/search/movie?"
+    case CONFIGURATION = "https://api.themoviedb.org/3/configuration?"
 }

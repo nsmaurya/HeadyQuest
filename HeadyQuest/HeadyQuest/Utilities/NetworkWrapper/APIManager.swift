@@ -26,6 +26,11 @@ class APIManager {
         let (apiBuilder,params) = APIBuilder.buildMovieSearchAPI(query: query, language: language, page: page, includeAdult: includeAdult, region: region, year: year, primaryReleaseYear: primaryReleaseYear)
         restClient.request(apiBuilder.getMethod(), urlString: apiBuilder.getUrl(),parameters: params as [String : AnyObject]?, shouldTrackForModification:true, onSuccess: onSuccess, onFailure: onFailure)
     }
+    //MARK: - Configuration
+    func getDataFromConfigurationAPI(onSuccess:@escaping (NSDictionary)->(), onFailure:@escaping (ErrorState)->()){
+        let (apiBuilder,params) = APIBuilder.buildConfigurationAPI()
+        restClient.request(apiBuilder.getMethod(), urlString: apiBuilder.getUrl(),parameters: params as [String : AnyObject]?, onSuccess: onSuccess, onFailure: onFailure)
+    }
 }
 
 class RestClient {

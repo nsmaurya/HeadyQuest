@@ -22,4 +22,18 @@ class APIBuilder {
         }
         return (apiObject, params)
     }
+    //MARK:- Configuration API
+    static func buildConfigurationAPI()->(ConfigurationAPI, [String:String]?) {
+        let apiObject = ConfigurationAPI()
+        var params:[String:String]? {
+            do {
+                let temp = try apiObject.buildAPIParameter()
+                return temp
+            } catch {
+                print("Error building ConfigurationAPI PARAMS")
+                return nil
+            }
+        }
+        return (apiObject, params)
+    }
 }
