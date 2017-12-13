@@ -7,14 +7,6 @@
 //
 
 import Foundation
-protocol NetworkConnectivityDelegate: class {
-    func didFailToReceiveNetwork()
-    func didSuccessToReceiveNetwork()
-}
-
-extension NetworkConnectivityDelegate {
-    func didFailToReceiveNetwork() {}
-}
 
 enum ErrorState: Hashable, Equatable {
     case failure
@@ -45,7 +37,7 @@ enum ErrorState: Hashable, Equatable {
         case .noNetwork:
             return "Seems like you don't have an active internet connection."
         case .emptyState:
-            return "No results found."
+            return "No result found."
         case .other(let message):
             return message
         default:

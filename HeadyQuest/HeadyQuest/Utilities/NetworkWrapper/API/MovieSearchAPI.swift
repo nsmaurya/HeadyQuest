@@ -9,7 +9,7 @@
 import Foundation
 
 struct MovieSearchAPI {
-    
+    //Keys
     private let queryKey = "query"
     private let apiKey = "api_key"
     private let languageKey = "language"
@@ -19,8 +19,9 @@ struct MovieSearchAPI {
     private let yearKey = "year"
     private let primaryReleaseYearKey = "primary_release_year"
     
+    //Variables
     private var query:String?
-    private var api = GlobalVariables.API_KEY.rawValue
+    private var api = GlobalConstants.API_KEY.rawValue
     private var language:String? = "en-US"
     private var page:UInt64? = 1
     private var includeAdult:Bool? = false
@@ -29,6 +30,7 @@ struct MovieSearchAPI {
     private var primaryReleaseYear:UInt?
     private let method = "GET"
     
+    //MARK:- Initialization
     init(query: String, language: String? = nil, page: UInt64? = nil, includeAdult: Bool? = nil, region:String? = nil, year:UInt? = nil, primaryReleaseYear:UInt? = nil) {
         self.query = query
         self.language = language
@@ -39,14 +41,17 @@ struct MovieSearchAPI {
         self.primaryReleaseYear = primaryReleaseYear
     }
     
+    //MARK:- Get Url
     func getUrl() -> String {
         return URLList.MOVIE_SEARCH.rawValue
     }
     
+    //MARK:- Get method
     func getMethod() -> String {
         return method
     }
     
+    //MARK:- API Building
     func buildAPIParameter() throws -> [String: Any]? {
         var params: [String:Any] = [:]
         

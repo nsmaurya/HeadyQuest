@@ -9,10 +9,11 @@
 import Foundation
 import ObjectMapper
 struct Movie: Mappable {
+    //Variables
     var voteCount: UInt64?
     var id: UInt64?
     var video: Bool?
-    var videoAverage:Double?
+    var voteAverage:Double?
     var title:String?
     var popularity:Double?
     var posterPath:String?
@@ -23,11 +24,12 @@ struct Movie: Mappable {
     
     init?(map: Map){}
     
+    //MARK:- Mapping with API Response
     mutating func mapping(map: Map) {
         voteCount <- map["vote_count"]
         id <- map["id"]
         video <- map["video"]
-        videoAverage <- map["vote_average"]
+        voteAverage <- map["vote_average"]
         title <- map["title"]
         popularity <- map["popularity"]
         posterPath <- map["poster_path"]

@@ -21,6 +21,7 @@ class APIManager {
     }
     
     let restClient = RestClient()
+    
     //MARK: - Movie search
     func getDataFromMovieSearchAPI(query: String, language: String? = nil, page: UInt64? = nil, includeAdult: Bool? = nil, region: String? = nil, year: UInt? = nil, primaryReleaseYear: UInt? = nil, onSuccess:@escaping (NSDictionary)->(), onFailure:@escaping (ErrorState)->()){
         let (apiBuilder,params) = APIBuilder.buildMovieSearchAPI(query: query, language: language, page: page, includeAdult: includeAdult, region: region, year: year, primaryReleaseYear: primaryReleaseYear)
@@ -48,7 +49,6 @@ class RestClient {
         
         if shouldTrackForModification {
             if universalSearchRequestLogger != nil {
-                print("cancelPrevRequest=\(urlString) and parames= \(params)")
                 universalSearchRequestLogger?.cancel()
                 universalSearchRequestLogger = nil
             }
@@ -67,19 +67,8 @@ class RestClient {
                 self_.universalSearchRequestLogger = nil
             }
             
-            print(response.request?.url ?? "")
-            print(parameterFormat ?? "")
-            NSLog("response time is \(String(describing: response.response))")
-            
             switch response.result {
             case .success:
-                
-                print("requestURl=\(response.request?.url)")
-                print(response.request?.url ?? "")
-                print(parameterFormat ?? "")
-                print(response.request?.allHTTPHeaderFields ?? "" )
-                NSLog("response time is \(response.response)")
-                
                 if let json = response.result.value {
                     if response.response?.statusCode == 200 {
                         if JSONSerialization.isValidJSONObject(json) {
@@ -91,7 +80,6 @@ class RestClient {
                         }
                     }
                 } else {
-                    print("response: \(response.debugDescription)\n")
                     onFailure(ErrorState.failure)
                 }
             case .failure(_):
@@ -108,7 +96,6 @@ class RestClient {
         let manager = Alamofire.SessionManager(configuration: configuration)
         let alamoRequest = manager.request(urlString, method: alamoMethod, parameters: parameterFormat, encoding: encoding, headers: headers).validate().responseJSON { (response) in
             completionBlock(response)
-            print(response)
             if let index = self.sessionManager.index(where: { (mgr) -> Bool in
                 return mgr === manager
             }){
